@@ -10,12 +10,9 @@
 :root {
   --navy: #103f82;
   --blue: #1764d9;
-  --blue-bright: #2675f5;
-  --blue-soft: #eaf3ff;
   --ink: #10264a;
   --muted: #526582;
   --line: #dce9fa;
-  --surface: #ffffff;
   --page: #f4f8fd;
 }
 
@@ -32,7 +29,6 @@ body {
     linear-gradient(180deg, #f8fbff 0%, var(--page) 100%);
   font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic",
     "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-  -webkit-font-smoothing: antialiased;
   line-height: 1.5;
 }
 
@@ -42,7 +38,7 @@ body {
   margin: 0 auto;
 }
 
-/* 상단 제목 영역 */
+/* 상단 제목 */
 .hero {
   display: grid;
   grid-template-columns: 72px minmax(0, 1fr);
@@ -51,7 +47,7 @@ body {
   padding: 27px 30px 25px;
   margin-bottom: 22px;
   color: white;
-  background: linear-gradient(120deg, #1856a8 0%, #174b94 55%, #164586 100%);
+  background: linear-gradient(120deg, #1856a8, #164586);
   border-radius: 20px;
   box-shadow: 0 12px 28px rgba(22, 76, 148, .16);
 }
@@ -63,9 +59,8 @@ body {
   place-items: center;
   margin-top: 3px;
   color: var(--navy);
-  background: #fff;
+  background: white;
   border-radius: 50%;
-  box-shadow: 0 5px 14px rgba(0, 0, 0, .1);
 }
 
 .hero-icon svg {
@@ -98,10 +93,9 @@ h1 {
   min-height: 122px;
   padding: 22px 24px;
   margin-bottom: 22px;
-  background: linear-gradient(110deg, #edf5ff 0%, #fff 100%);
+  background: linear-gradient(110deg, #edf5ff, #fff);
   border: 2px solid #4a8ce4;
   border-radius: 19px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.8);
 }
 
 .location-icon {
@@ -136,30 +130,23 @@ h1 {
   word-break: keep-all;
 }
 
-/* 연락처 목록 */
+/* 연락처 카드 */
 .contact-list {
   display: grid;
   gap: 13px;
 }
 
-/* 분야별 카드 */
 .contact-card {
   display: grid;
-  grid-template-columns: 84px minmax(0, 1fr) auto;
+  grid-template-columns: 84px minmax(0, 1fr) 230px;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   min-height: 126px;
   padding: 20px 21px;
   background: rgba(255,255,255,.96);
   border: 1px solid #e1ecfb;
   border-radius: 18px;
   box-shadow: 0 3px 10px rgba(35, 88, 157, .055);
-  transition: transform .16s ease, box-shadow .16s ease;
-}
-
-.contact-card:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 7px 18px rgba(35, 88, 157, .09);
 }
 
 /* 분야별 아이콘 */
@@ -183,7 +170,7 @@ h1 {
   fill: none;
 }
 
-/* 분야별 제목 및 설명 */
+/* 담당 분야 */
 .contact-title {
   margin: 0 0 7px;
   color: #0e2446;
@@ -200,12 +187,13 @@ h1 {
   word-break: keep-all;
 }
 
-/* 버튼 그룹 */
+/* 버튼 영역 */
 .action-buttons {
   display: flex;
   flex-direction: column;
   gap: 8px;
   align-items: stretch;
+  min-width: 0;
 }
 
 /* 전화 버튼 */
@@ -213,60 +201,51 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  min-width: 230px;
-  min-height: 54px;
-  padding: 13px 15px;
-  color: #fff;
+  gap: 9px;
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 10px;
+  color: white;
   background: linear-gradient(135deg, #2478f5, #1760d9);
   border: 0;
   border-radius: 12px;
   box-shadow: 0 5px 12px rgba(30, 101, 220, .18);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
   text-decoration: none;
   white-space: nowrap;
-  transition: transform .15s ease, filter .15s ease;
-}
-
-.call-button:hover,
-.call-button:focus-visible {
-  filter: brightness(.96);
-  transform: translateY(-1px);
 }
 
 .call-button svg {
   flex: 0 0 auto;
-  width: 21px;
-  height: 21px;
+  width: 20px;
+  height: 20px;
   fill: currentColor;
 }
 
-/* 네이버웍스 메시지 버튼 */
+.phone-number {
+  display: inline;
+}
+
+/* 네이버웍스 버튼 */
 .message-button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  min-width: 230px;
-  min-height: 54px;
-  padding: 11px 12px;
+  gap: 8px;
+  width: 100%;
+  min-height: 52px;
+  padding: 10px 8px;
   color: #1760c7;
-  background: #fff;
+  background: white;
   border: 1.5px solid #78a9ee;
   border-radius: 12px;
   box-shadow: 0 3px 8px rgba(30, 101, 220, .07);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   text-decoration: none;
-  white-space: nowrap;
-  transition: transform .15s ease, background .15s ease;
-}
-
-.message-button:hover,
-.message-button:focus-visible {
-  background: #f0f6ff;
-  transform: translateY(-1px);
+  text-align: center;
+  line-height: 1.35;
 }
 
 /* 네이버웍스 아이콘 */
@@ -278,7 +257,7 @@ h1 {
   height: 25px;
   border-radius: 7px;
   background: #00bf6f;
-  color: #fff;
+  color: white;
   font-size: 14px;
   font-weight: 900;
 }
@@ -327,20 +306,20 @@ h1 {
 @media (max-width: 600px) {
 
   body {
-    padding: 12px 10px 22px;
+    padding: 12px 9px 22px;
   }
 
   .hero {
-    grid-template-columns: 48px minmax(0, 1fr);
-    gap: 13px;
-    padding: 21px 17px;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 12px;
+    padding: 20px 14px;
     margin-bottom: 14px;
     border-radius: 16px;
   }
 
   .hero-icon {
-    width: 46px;
-    height: 46px;
+    width: 44px;
+    height: 44px;
   }
 
   .hero-icon svg {
@@ -357,21 +336,21 @@ h1 {
   }
 
   .location {
-    grid-template-columns: 54px minmax(0, 1fr);
-    gap: 13px;
-    min-height: 100px;
-    padding: 16px 13px;
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 12px;
+    min-height: 96px;
+    padding: 14px 12px;
     margin-bottom: 14px;
     border-radius: 15px;
   }
 
   .location-icon {
-    height: 60px;
+    height: 58px;
   }
 
   .location-icon svg {
-    width: 39px;
-    height: 39px;
+    width: 38px;
+    height: 38px;
   }
 
   .location-label {
@@ -383,69 +362,83 @@ h1 {
     gap: 10px;
   }
 
+  /* 핵심: 모바일에서도 3열 유지 */
   .contact-card {
-    grid-template-columns: 54px minmax(0, 1fr);
-    gap: 12px;
-    min-height: 0;
-    padding: 15px 13px;
-    border-radius: 15px;
+    grid-template-columns: 46px minmax(0, 1fr) 112px;
+    gap: 8px;
+    min-height: 88px;
+    padding: 11px 9px;
+    border-radius: 13px;
   }
 
   .category-icon {
-    width: 52px;
-    height: 52px;
+    width: 44px;
+    height: 44px;
   }
 
   .category-icon svg {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
   }
 
   .contact-title {
     margin-bottom: 3px;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .contact-detail {
-    font-size: 13px;
+    font-size: 11px;
+    line-height: 1.4;
+    word-break: keep-all;
   }
 
+  /* 버튼을 설명 아래가 아닌 오른쪽에 배치 */
   .action-buttons {
-    grid-column: 2;
+    grid-column: auto;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-top: 5px;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 0;
+    min-width: 0;
   }
 
   .call-button {
+    width: 100%;
     min-width: 0;
-    min-height: 43px;
-    padding: 10px 12px;
-    gap: 7px;
-    border-radius: 9px;
-    font-size: 13px;
+    min-height: 34px;
+    padding: 5px 3px;
+    gap: 5px;
+    border-radius: 8px;
+    font-size: 12px;
   }
 
   .call-button svg {
-    width: 17px;
-    height: 17px;
+    width: 15px;
+    height: 15px;
+  }
+
+  /* 모바일에서는 전화번호 대신 전화 표시 */
+  .phone-number {
+    display: none;
   }
 
   .message-button {
+    width: 100%;
     min-width: 0;
-    min-height: 43px;
-    padding: 9px 11px;
-    gap: 6px;
-    border-radius: 9px;
-    font-size: 12px;
+    min-height: 38px;
+    padding: 4px 3px;
+    gap: 4px;
+    border-radius: 8px;
+    font-size: 10px;
+    line-height: 1.25;
+    white-space: normal;
   }
 
   .works-icon {
-    width: 20px;
-    height: 20px;
-    font-size: 12px;
+    width: 19px;
+    height: 19px;
+    font-size: 11px;
+    border-radius: 5px;
   }
 
   .footer {
@@ -455,16 +448,35 @@ h1 {
   }
 }
 
-@media (max-width: 360px) {
+/* 아주 작은 휴대폰 */
+@media (max-width: 340px) {
 
-  .action-buttons {
-    flex-direction: column;
-    align-items: stretch;
+  .contact-card {
+    grid-template-columns: 40px minmax(0, 1fr) 104px;
+    gap: 6px;
+    padding: 9px 7px;
   }
 
-  .call-button,
+  .category-icon {
+    width: 39px;
+    height: 39px;
+  }
+
+  .category-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .contact-title {
+    font-size: 15px;
+  }
+
+  .contact-detail {
+    font-size: 10px;
+  }
+
   .message-button {
-    width: 100%;
+    font-size: 9px;
   }
 }
 
@@ -473,7 +485,6 @@ h1 {
     transition: none !important;
   }
 }
-
 </style>
 </head>
 
@@ -487,19 +498,23 @@ h1 {
     <div class="hero-icon" aria-hidden="true">
       <svg viewBox="0 0 24 24">
         <path fill="currentColor"
-          d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.56 3.57a1 1 0 0 1-.25 1.02l-2.19 2.2z"/>
+          d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.56 3.57a1 1 0 0 1-.25 1.02z"/>
       </svg>
     </div>
 
     <div>
       <h1>시설관리 연락처</h1>
-      <p class="intro-text">화장실 이용 중 불편 사항이 있으신 경우, 아래에 표시된 현재 위치를 확인하신 후 해당 담당자에게 연락해 주시기 바랍니다.</p>
+      <p class="intro-text">
+        화장실 이용 중 불편 사항이 있으신 경우,
+        아래에 표시된 현재 위치를 확인하신 후
+        해당 담당자에게 연락해 주시기 바랍니다.
+      </p>
     </div>
 
   </header>
 
   <!-- 현재 위치 -->
-  <section class="location" aria-labelledby="location-label">
+  <section class="location">
 
     <div class="location-icon" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="currentColor">
@@ -508,7 +523,7 @@ h1 {
     </div>
 
     <div>
-      <span class="location-label" id="location-label">현재 위치</span>
+      <span class="location-label">현재 위치</span>
       <p class="location-name" id="room-name">
         화장실 위치를 확인하고 있습니다.
       </p>
@@ -517,10 +532,21 @@ h1 {
   </section>
 
   <!-- 분야별 연락처 -->
-  <section class="contact-list" aria-label="시설관리 연락처">
-      <article class="contact-card">
+  <section class="contact-list">
 
-      <div class="category-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M29 5 17 27"/><path d="m15 25 13 7-9 10a3 3 0 0 1-5-3l1-4-5-3z"/><path d="m14 30-5 8"/><path d="M29 6 34 3"/><path d="M31 30c-1 3-1 4 1 5 2 1 4-1 3-3l-2-4z"/><path d="M37 36c-1 2 0 4 2 4s3-2 2-4l-2-3z"/></svg></div>
+    <!-- 청소 -->
+    <article class="contact-card">
+
+      <div class="category-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48">
+          <path d="M29 5 17 27"/>
+          <path d="m15 25 13 7-9 10a3 3 0 0 1-5-3l1-4-5-3z"/>
+          <path d="m14 30-5 8"/>
+          <path d="M29 6 34 3"/>
+          <path d="M31 30c-1 3-1 4 1 5 2 1 4-1 3-3l-2-4z"/>
+          <path d="M37 36c-1 2 0 4 2 4s3-2 2-4l-2-3z"/>
+        </svg>
+      </div>
 
       <div>
         <h2 class="contact-title">청소</h2>
@@ -530,7 +556,11 @@ h1 {
       <div class="action-buttons">
 
         <a class="call-button" href="tel:0647106936">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.56 3.57a1 1 0 0 1-.25 1.02l-2.19 2.2z"/></svg>전화 064-710-6936</a>
+          <svg viewBox="0 0 24 24">
+            <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.56 3.57a1 1 0 0 1-.25 1.02z"/>
+          </svg>
+          전화 <span class="phone-number">064-710-6936</span>
+        </a>
 
         <a class="message-button"
            href="https://gov-naverworks.com/message/send?version=26&amp;emailList=sh1170%40jeju.go.kr">
@@ -539,12 +569,17 @@ h1 {
         </a>
 
       </div>
-
     </article>
 
-      <article class="contact-card">
+    <!-- 전기 -->
+    <article class="contact-card">
 
-      <div class="category-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 42c-6 0-10-4-10-10v-7a10 10 0 0 1 20 0v7c0 6-4 10-10 10z"/><path d="M18 37h12M20 42v3h8v-3M24 2v4M8 9l3 3M40 9l-3 3M4 24h4M40 24h4"/></svg></div>
+      <div class="category-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48">
+          <path d="M24 42c-6 0-10-4-10-10v-7a10 10 0 0 1 20 0v7c0 6-4 10-10 10z"/>
+          <path d="M18 37h12M20 42v3h8v-3M24 2v4M8 9l3 3M40 9l-3 3M4 24h4M40 24h4"/>
+        </svg>
+      </div>
 
       <div>
         <h2 class="contact-title">전기</h2>
@@ -554,7 +589,11 @@ h1 {
       <div class="action-buttons">
 
         <a class="call-button" href="tel:0647106936">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.56 3.57a1 1 0 0 1-.25 1.02l-2.19 2.2z"/></svg>전화 064-710-6936</a>
+          <svg viewBox="0 0 24 24">
+            <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.56 3.57a1 1 0 0 1-.25 1.02z"/>
+          </svg>
+          전화 <span class="phone-number">064-710-6936</span>
+        </a>
 
         <a class="message-button"
            href="https://gov-naverworks.com/message/send?version=26&amp;emailList=sh1170%40jeju.go.kr">
@@ -563,12 +602,19 @@ h1 {
         </a>
 
       </div>
-
     </article>
 
-      <article class="contact-card">
+    <!-- 설비 -->
+    <article class="contact-card">
 
-      <div class="category-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M13 12h22v5H13zM18 17v5h12v-5M24 22v5"/><path d="M24 27H12a3 3 0 0 0-3 3v7h18v-7a3 3 0 0 0-3-3z"/><path d="M27 31h8v6h-8M36 37c0 3-2 5-4 5s-4-2-4-5"/><path d="M32 42v2"/></svg></div>
+      <div class="category-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48">
+          <path d="M13 12h22v5H13zM18 17v5h12v-5M24 22v5"/>
+          <path d="M24 27H12a3 3 0 0 0-3 3v7h18v-7a3 3 0 0 0-3-3z"/>
+          <path d="M27 31h8v6h-8M36 37c0 3-2 5-4 5s-4-2-4-5"/>
+          <path d="M32 42v2"/>
+        </svg>
+      </div>
 
       <div>
         <h2 class="contact-title">설비</h2>
@@ -577,8 +623,12 @@ h1 {
 
       <div class="action-buttons">
 
-        <a class="call-button" href="tel:0647106936">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.56 3.57a1 1 0 0 1-.25 1.02l-2.19 2.2z"/></svg>전화 064-710-6937</a>
+        <a class="call-button" href="tel:0647106937">
+          <svg viewBox="0 0 24 24">
+            <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.56 3.57a1 1 0 0 1-.25 1.02z"/>
+          </svg>
+          전화 <span class="phone-number">064-710-6937</span>
+        </a>
 
         <a class="message-button"
            href="https://gov-naverworks.com/message/send?version=26&amp;emailList=doit94%40jeju.go.kr">
@@ -587,12 +637,16 @@ h1 {
         </a>
 
       </div>
-
     </article>
 
-      <article class="contact-card">
+    <!-- 건축 -->
+    <article class="contact-card">
 
-      <div class="category-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M28 8a11 11 0 0 0-13 14L5 32a4 4 0 0 0 6 6l10-10A11 11 0 0 0 35 15l-7 7-6-2-2-6z"/></svg></div>
+      <div class="category-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48">
+          <path d="M28 8a11 11 0 0 0-13 14L5 32a4 4 0 0 0 6 6l10-10A11 11 0 0 0 35 15l-7 7-6-2-2-6z"/>
+        </svg>
+      </div>
 
       <div>
         <h2 class="contact-title">건축</h2>
@@ -601,8 +655,12 @@ h1 {
 
       <div class="action-buttons">
 
-        <a class="call-button" href="tel:0647106936">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.56 3.57a1 1 0 0 1-.25 1.02l-2.19 2.2z"/></svg>전화 064-710-6935</a>
+        <a class="call-button" href="tel:0647106935">
+          <svg viewBox="0 0 24 24">
+            <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.56 3.57a1 1 0 0 1-.25 1.02z"/>
+          </svg>
+          전화 <span class="phone-number">064-710-6935</span>
+        </a>
 
         <a class="message-button"
            href="https://gov-naverworks.com/message/send?version=26&amp;emailList=karenasm8252%40jeju.go.kr">
@@ -611,12 +669,17 @@ h1 {
         </a>
 
       </div>
-
     </article>
 
-      <article class="contact-card">
+    <!-- 방역 -->
+    <article class="contact-card">
 
-      <div class="category-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 4 40 10v12c0 10-7 17-16 22C15 39 8 32 8 22V10z"/><path d="M24 14v16M16 22h16"/></svg></div>
+      <div class="category-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48">
+          <path d="M24 4 40 10v12c0 10-7 17-16 22C15 39 8 32 8 22V10z"/>
+          <path d="M24 14v16M16 22h16"/>
+        </svg>
+      </div>
 
       <div>
         <h2 class="contact-title">방역</h2>
@@ -626,7 +689,11 @@ h1 {
       <div class="action-buttons">
 
         <a class="call-button" href="tel:0647106936">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.56 3.57a1 1 0 0 1-.25 1.02l-2.19 2.2z"/></svg>전화 064-710-6936</a>
+          <svg viewBox="0 0 24 24">
+            <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.56 3.57a1 1 0 0 1-.25 1.02z"/>
+          </svg>
+          전화 <span class="phone-number">064-710-6936</span>
+        </a>
 
         <a class="message-button"
            href="https://gov-naverworks.com/message/send?version=26&amp;emailList=sh1170%40jeju.go.kr">
@@ -635,15 +702,15 @@ h1 {
         </a>
 
       </div>
-
     </article>
-    </section>
+
+  </section>
 
   <!-- 하단 안내 -->
   <footer class="footer">
 
     <div class="footer-line">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="9"/>
         <path d="M12 6v6l4 3"/>
       </svg>
@@ -665,6 +732,7 @@ h1 {
 
 /* 화장실 위치 정보 */
 const rooms = {
+
   "101": "제1청사 본관 지하층 남자화장실",
   "102": "제1청사 본관 지하층 여자화장실",
   "103": "제1청사 본관 1층 남자화장실",
@@ -696,6 +764,7 @@ const rooms = {
   "129": "제1청사 별관 3층 남쪽 여자화장실",
   "130": "제1청사 식당동 1층 남자화장실",
   "131": "제1청사 식당동 1층 여자화장실",
+
   "201": "제2청사 본관 1층 남자화장실",
   "202": "제2청사 본관 1층 여자화장실",
   "203": "제2청사 본관 1층 장애인화장실",
@@ -716,6 +785,7 @@ const rooms = {
   "218": "제2청사 4별관 동쪽 여자화장실",
   "219": "제2청사 4별관 중앙 남자화장실",
   "220": "제2청사 4별관 중앙 여자화장실",
+
   "301": "제3청사 본관 1층 로비 장애인화장실",
   "302": "제3청사 본관 1층 통로 여자화장실",
   "303": "제3청사 본관 1층 통로 장애인화장실",
@@ -754,27 +824,22 @@ const rooms = {
   "336": "제3청사 3별관 4층 여자화장실",
   "337": "제3청사 3별관 4층 남자장애인화장실",
   "338": "제3청사 3별관 4층 여자장애인화장실"
+
 };
 
-/* QR 코드의 화장실 위치 자동 표시 */
+/* QR 코드 위치 표시 */
 const params = new URLSearchParams(window.location.search);
 const roomId = params.get("room");
 const roomName = document.getElementById("room-name");
 
 if (!roomId) {
-
   roomName.textContent =
     "QR코드의 화장실 위치 정보를 확인할 수 없습니다.";
-
 } else if (Object.prototype.hasOwnProperty.call(rooms, roomId)) {
-
   roomName.textContent = rooms[roomId];
-
 } else {
-
   roomName.textContent =
     "등록되지 않은 화장실 번호입니다. (관리번호: " + roomId + ")";
-
 }
 
 </script>
